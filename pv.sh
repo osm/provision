@@ -38,7 +38,7 @@ rbak() {
 }
 
 rmd5() {
-	cmd=$(ssh $user@$addr -p $port "test -f /bin/md5 && echo md5 || echo md5 --tag")
+	cmd=$(ssh $user@$addr -p $port "test -f /bin/md5 && echo md5 || echo md5sum --tag")
 	ssh $user@$addr -p $port "test -f $1 && $cmd $1" | awk '{ print $NF }'
 }
 
